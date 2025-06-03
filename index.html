@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pace Wing - The Simple Running Split Planner</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+    <link rel="manifest" href="fav/site.webmanifest">
+</head>
+<body>
+    <div class="hero-banner">
+        <h1 class="hero-title">Pace Wing</h1>
+    </div>
+
+    <div class="container">
+        <!-- Input Section -->
+        <div class="input-section">
+            <h2 class="section-title">Set Your Goals</h2>
+
+            <div class="input-modals-container">
+                <!-- Distance Modal -->
+                <div class="input-modal" data-type="distance">
+                    <button class="modal-button left">📌</button>
+                    <div class="input-container">
+                        <input type="number" class="input-field" placeholder="Distance">
+                        <select class="unit-dropdown">
+                            <option value="km">kilometers</option>
+                            <option value="m">meters</option>
+                            <option value="mi">miles</option>
+                        </select>
+                    </div>
+                    <button class="modal-button right">🎯</button>
+                </div>
+
+                <!-- Pace Modal -->
+                <div class="input-modal" data-type="pace">
+                    <button class="modal-button left">📌</button>
+                    <div class="input-container">
+                        <input type="number" class="input-field" placeholder="Pace or Speed" step="0.01">
+                        <select class="unit-dropdown">
+                            <option value="min/km">minutes/kilometers</option>
+                            <option value="min/mi">minutes/miles</option>
+                            <option value="km/h">kilometers/hour</option>
+                            <option value="mi/h">miles/hour</option>
+                            <option value="m/s">meters/second</option>
+                            <option value="s/100m">seconds/100 meters</option>
+                        </select>
+                    </div>
+                    <button class="modal-button right">🎯</button>
+                </div>
+
+                <!-- Time Modal -->
+                <div class="input-modal" data-type="time">
+                    <button class="modal-button left">📌</button>
+                    <div class="input-container">
+                        <input type="text" class="input-field" placeholder="Time HH:MM:SS">
+                    </div>
+                    <button class="modal-button right">🎯</button>
+                </div>
+            </div>
+
+            <div class="calculate-button-container">
+                <button class="calculate-button" id="calculate-btn">Calculate</button>
+                    <div class="error-popup"></div>
+            </div>
+        </div>
+
+        <!-- Split Planner Section -->
+        <div class="split-section">
+            <h2 class="section-title">Split Planner</h2>
+            
+            <div class="split-controls">
+                <div class="split-type-selector">
+                    <label class="split-type-button">
+                        <input type="radio" name="split-type" value="distance" checked>
+                        <span>Split by Distance</span>
+                    </label>
+                    <label class="split-type-button">
+                        <input type="radio" name="split-type" value="time">
+                        <span>Split by Time</span>
+                    </label>
+                    <label class="split-type-button">
+                        <input type="radio" name="split-type" value="custom">
+                        <span>Custom Split</span>
+                    </label>
+                </div>
+                
+                <div class="number-input-control">
+                    <label for="split-number" class="number-input-label">Number of Splits:</label>
+                    <div class="number-input-widget">
+                        <button type="button" class="number-input-button" id="decrement-split" aria-label="Decrement splits">-</button>
+                        <input type="number" id="split-number" min="1" max="50" value="5">
+                        <button type="button" class="number-input-button" id="increment-split" aria-label="Increment splits">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Container -->
+            <div class="chart-container">
+                <canvas id="pace-chart"></canvas>
+            </div>
+
+            <!-- Data Table -->
+            <div class="table-container">
+                <table class="split-table" id="split-table">
+                    <thead>
+                        <tr>
+                            <th>Split</th>
+                            <th>Split Time</th>
+                            <th>Split Distance</th>
+                            <th>Split Pace</th>
+                            <th>Cumulative Time</th>
+                            <th>Cumulative Distance</th>
+                            <th>Average Pace</th>
+                            <th>Difference from Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic content will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

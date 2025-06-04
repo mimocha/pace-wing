@@ -1,3 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Fira+Code:wght@300..700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/************************************ Colors **********************************/
+
+:root {
+    --background: #0D1117;
+    --foreground: #D6D6D6;
+    --comment: #797979;
+    --green: #BBE958;
+    --blue: #3F9FE8;
+    --light-blue: #8FCFFF;
+    --pink: #ED4D90;
+    --orange: #E87D3E;
+    --dark-orange: #aa4e19;
+    --yellow: #E5B567;
+    --purple: #9E86C8;
+}
+
+/********************************* Media Query ********************************/
+
+@media (min-width: 48em) {
+    header {
+        text-align: center;
+        h1 {
+            font-size: 7rem;
+            line-height: 5rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 48em) {
+    header {
+        text-align: left;
+        h1 {
+            font-size: 5rem;
+            line-height: 4rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            padding-left: 1.2rem;
+        }
+    }
+
+    .container {
+        padding: 0.5rem;
+    }
+}
+
+/********************************* Base Style *********************************/
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -198,12 +250,6 @@ input {
     transform: translateY(1px);
 }
 
-/* Error popup for calculate button (can reuse .error-popup styles) */
-.calculate-button-container .error-popup {
-    top: -3.5rem; /* Adjust position relative to the larger button */
-}
-
-
 /* Split Planner Section */
 .split-section {
     padding: 3rem 0;
@@ -226,28 +272,6 @@ input {
     align-items: center; /* Center items when stacked vertically */
 }
 
-/* Remove or comment out old .radio-group and .radio-option styles */
-/*
-.radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.radio-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
-    cursor: pointer;
-}
-
-.radio-option input[type="radio"] {
-    accent-color: #58a6ff;
-}
-*/
-
-/* New styles for split type selector */
 .split-type-selector {
     display: flex;
     border: 2px solid #30363d;
@@ -282,25 +306,6 @@ input {
     color: #0d1117; /* Dark text */
 }
 
-/* Remove or comment out old .number-input styles */
-/*
-.number-input {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.number-input input {
-    background-color: #21262d;
-    border: 1px solid #30363d;
-    color: #f0f6fc;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    width: 100px;
-}
-*/
-
-/* New styles for number input control */
 .number-input-control {
     display: flex;
     flex-direction: column;
@@ -311,8 +316,11 @@ input {
 }
 
 .number-input-label {
+    width: 100%;
+    text-align: center;
+    font-style: italic;
     font-size: 0.9rem;
-    color: #c9d1d9; /* Lighter text for label */
+    color: #c9d1d9;
 }
 
 .number-input-widget {
@@ -457,14 +465,6 @@ input {
         max-width: none; /* Remove mobile constraint if not needed */
         align-items: flex-start; /* Align label to the start for row layout */
     }
-    
-    /* Remove old .radio-group media query if it exists */
-    /*
-    .radio-group {
-        flex-direction: row;
-        gap: 2rem;
-    }
-    */
 }
 
 @media (min-width: 1024px) {
